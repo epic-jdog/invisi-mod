@@ -60,6 +60,12 @@ public class Invisimod {
         proxy.registerRenderInformation();
         
         LanguageRegistry.addName(invisidustItem, "Invisi-Dust");
+        LanguageRegistry.addName(invisihelmetItem, "Invisi-Helmet");
+        LanguageRegistry.addName(invisichestplateItem, "Invisi-Chestplate");
+        LanguageRegistry.addName(invisileggingsItem, "Invisi-Leggings");
+        LanguageRegistry.addName(invisibootsItem, "Invisi-Boots");
+        LanguageRegistry.addName(invisiblockBlock, "Invisiblock");
+
         
         ItemStack glowstoneStack = new ItemStack(Item.lightStoneDust);
         ItemStack gunpowdahStack = new ItemStack(Item.gunpowder);

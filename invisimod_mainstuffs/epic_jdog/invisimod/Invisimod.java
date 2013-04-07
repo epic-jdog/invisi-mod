@@ -1,5 +1,7 @@
 package epic_jdog.invisimod;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
@@ -36,6 +38,8 @@ public class Invisimod {
     private final static Item invisibootsItem = new InvisiArmorItem(7059, EnumArmorMaterial.DIAMOND,
             ModLoader.addArmor("Invisiarmor"), 3).setCreativeTab(CreativeTabs.tabCombat).setUnlocalizedName(
             "Invisiboots");
+    private final static Block invisiblockBlock = new InvisiblockBlock(1500, Material.rock).setCreativeTab(CreativeTabs.tabMisc)
+            .setHardness(2F).setResistance(11).setUnlocalizedName("Invisiblock");
     
     public static final String modID = "Invisimod";
     // The instance of your mod that Forge uses.
@@ -61,6 +65,8 @@ public class Invisimod {
         ItemStack gunpowdahStack = new ItemStack(Item.gunpowder);
         ItemStack goldenCarrotStack = new ItemStack(Item.goldenCarrot);
         
+        
+        GameRegistry.registerBlock(invisiblockBlock, "invisiblockBlock");
         GameRegistry.addRecipe(new ItemStack(Invisimod.invisidustItem), "x  ", "  y", " z ", 'x', glowstoneStack, 'y',
                 gunpowdahStack, 'z', goldenCarrotStack);
         

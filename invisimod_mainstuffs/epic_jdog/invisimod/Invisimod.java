@@ -1,7 +1,9 @@
 package epic_jdog.invisimod;
 
+import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.src.ModLoader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -22,6 +24,13 @@ import net.minecraft.creativetab.CreativeTabs;
 public class Invisimod {
         
     private final static Item invisidustItem = new InvisidustItem(7055).setCreativeTab(CreativeTabs.tabMaterials).setMaxStackSize(63).setUnlocalizedName("Invisidust");
+    private final static Item invisihelmetItem = new InvisiArmorItem(7056, EnumArmorMaterial.DIAMOND, ModLoader.addArmor("Invisiarmor"), 0).setCreativeTab(CreativeTabs.tabCombat).setMaxStackSize(63).setUnlocalizedName("Invisihelmet");
+    private final static Item invisichestplateItem = new InvisiArmorItem(7057, EnumArmorMaterial.DIAMOND, ModLoader.addArmor("Invisiarmor"), 1).setCreativeTab(CreativeTabs.tabCombat).setMaxStackSize(63).setUnlocalizedName("Invisichestplate");
+    private final static Item invisileggingsItem = new InvisiArmorItem(7058, EnumArmorMaterial.DIAMOND, ModLoader.addArmor("Invisiarmor"), 2).setCreativeTab(CreativeTabs.tabCombat).setMaxStackSize(63).setUnlocalizedName("Invisileggings");
+    private final static Item invisibootsItem = new InvisiArmorItem(7059, EnumArmorMaterial.DIAMOND, ModLoader.addArmor("Invisiarmor"), 3).setCreativeTab(CreativeTabs.tabCombat).setMaxStackSize(63).setUnlocalizedName("Invisiboots");
+    
+    
+    
     public static final String modID="Invisimod";
         // The instance of your mod that Forge uses.
         @Instance("Invisimod")

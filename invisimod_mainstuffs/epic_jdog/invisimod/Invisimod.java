@@ -21,10 +21,14 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import epic_jdog.invisimod.proxy.CommonProxy;
+import net.minecraftforge.common.EnumHelper;
 
 @Mod(modid = Invisimod.modID, name = "Invisimod", version = "0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Invisimod {
+    
+    public static EnumToolMaterial InvisibladeMat = EnumHelper.addToolMaterial("Invisiblade", 3, 1000, 7.8F, 3, 15);
+
     
     private final static Item invisidustItem = new InvisidustItem(7055).setCreativeTab(CreativeTabs.tabMaterials)
             .setMaxStackSize(63).setUnlocalizedName("Invisidust");
@@ -63,7 +67,6 @@ public class Invisimod {
     public void load(FMLInitializationEvent event) {
         proxy.registerRenderInformation();
         
-        final EnumToolMaterial InvisibladeMat = EnumHelper.addToolMaterial("Invisiblade", 3, 1000, 7.8F, 3, 15);
         
         LanguageRegistry.addName(invisidustItem, "Invisidust");
         LanguageRegistry.addName(invisiblockBlock, "Invisiblock");

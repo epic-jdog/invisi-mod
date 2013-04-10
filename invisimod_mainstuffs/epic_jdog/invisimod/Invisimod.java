@@ -19,6 +19,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import epic_jdog.invisimod.proxy.CommonProxy;
 
 @Mod(modid = Invisimod.modID, name = "Invisimod", version = "0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -47,7 +48,7 @@ public class Invisimod {
     public static Invisimod instance;
     
     // Says where the client and server 'proxy' code is loaded.
-    @SidedProxy(clientSide = "epic_jdog.invisimod.ClientProxy", serverSide = "epic_jdog.invisimod.CommonProxy")
+    @SidedProxy(clientSide = "epic_jdog.invisimod.proxy.ClientProxy", serverSide = "epic_jdog.invisimod.proxy.CommonProxy")
     public static CommonProxy proxy;
     
     @PreInit
@@ -59,16 +60,32 @@ public class Invisimod {
     public void load(FMLInitializationEvent event) {
         proxy.registerRenderInformation();
         
-        LanguageRegistry.addName(invisidustItem, "Invisi-Dust");
+        LanguageRegistry.addName(invisidustItem, "Invisidust");
+        LanguageRegistry.addName(invisiblockBlock, "Invisiblock");
+        LanguageRegistry.addName(invisihelmetItem, "Invisisuit Helmet");
+        LanguageRegistry.addName(invisichestplateItem, "Invisisuit Chestplate");
+        LanguageRegistry.addName(invisileggingsItem, "Invisisuit Leggings");
+        LanguageRegistry.addName(invisibootsItem, "Invisisuit Boots");
         
+        ItemStack invisidustStack = new ItemStack(invisidustItem);
+        ItemStack netherrackStack = new ItemStack(Block.netherrack);
+        ItemStack cobbleStack = new ItemStack(Block.cobblestone);
+        ItemStack stoneStack = new ItemStack(Block.stone);
         ItemStack glowstoneStack = new ItemStack(Item.lightStoneDust);
         ItemStack gunpowdahStack = new ItemStack(Item.gunpowder);
         ItemStack goldenCarrotStack = new ItemStack(Item.goldenCarrot);
         
         
         GameRegistry.registerBlock(invisiblockBlock, "invisiblockBlock");
+        
+        
         GameRegistry.addRecipe(new ItemStack(Invisimod.invisidustItem), "x  ", "  y", " z ", 'x', glowstoneStack, 'y',
                 gunpowdahStack, 'z', goldenCarrotStack);
+    
+        GameRegistry.addShapelessRecipe(new ItemStack(invisiblockBlock), netherrackStack, invisidustStack);
+        GameRegistry.addShapelessRecipe(new ItemStack(invisiblockBlock), cobbleStack, invisidustStack);
+        GameRegistry.addShapelessRecipe(new ItemStack(invisiblockBlock), stoneStack, invisidustStack);
+        
         
     }
     

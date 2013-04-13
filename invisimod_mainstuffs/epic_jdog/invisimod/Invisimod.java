@@ -27,6 +27,8 @@ public class Invisimod {
     
     private final static Item invisidustItem = new InvisidustItem(7055).setCreativeTab(CreativeTabs.tabMaterials)
             .setMaxStackSize(63).setUnlocalizedName("Invisidust");
+    private final static Item invisidiamondItem = new InvisidustItem(7060).setCreativeTab(CreativeTabs.tabMaterials)
+            .setMaxStackSize(63).setUnlocalizedName("Invisidiamond");
     private final static Item invisihelmetItem = new InvisiArmorItem(7056, EnumArmorMaterial.DIAMOND,
             ModLoader.addArmor("Invisiarmor"), 0).setCreativeTab(CreativeTabs.tabCombat).setUnlocalizedName(
             "Invisihelmet");
@@ -66,7 +68,11 @@ public class Invisimod {
         LanguageRegistry.addName(invisichestplateItem, "Invisisuit Chestplate");
         LanguageRegistry.addName(invisileggingsItem, "Invisisuit Leggings");
         LanguageRegistry.addName(invisibootsItem, "Invisisuit Boots");
+        LanguageRegistry.addName(invisidiamondItem, "Invisidiamond");
         
+        
+        ItemStack diamondStack = new ItemStack(Item.diamond);
+        ItemStack invisidiamondStack = new ItemStack(invisidiamondItem);
         ItemStack invisidustStack = new ItemStack(invisidustItem);
         ItemStack netherrackStack = new ItemStack(Block.netherrack);
         ItemStack cobbleStack = new ItemStack(Block.cobblestone);
@@ -85,7 +91,7 @@ public class Invisimod {
         GameRegistry.addShapelessRecipe(new ItemStack(invisiblockBlock), netherrackStack, invisidustStack);
         GameRegistry.addShapelessRecipe(new ItemStack(invisiblockBlock), cobbleStack, invisidustStack);
         GameRegistry.addShapelessRecipe(new ItemStack(invisiblockBlock), stoneStack, invisidustStack);
-        
+        GameRegistry.addShapelessRecipe(invisidiamondStack, diamondStack, invisidustStack);
         
     }
     

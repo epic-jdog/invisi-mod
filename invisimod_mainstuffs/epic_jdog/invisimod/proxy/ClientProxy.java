@@ -1,4 +1,5 @@
-package epic_jdog.invisimod;
+package epic_jdog.invisimod.proxy;
+
 
 
 public class ClientProxy extends CommonProxy {

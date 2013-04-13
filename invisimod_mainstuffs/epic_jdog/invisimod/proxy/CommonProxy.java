@@ -1,4 +1,4 @@
-package epic_jdog.invisimod;
+package epic_jdog.invisimod.proxy;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

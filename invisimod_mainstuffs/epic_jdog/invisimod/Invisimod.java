@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
@@ -61,6 +62,8 @@ public class Invisimod {
     @Init
     public void load(FMLInitializationEvent event) {
         proxy.registerRenderInformation();
+        
+        final EnumToolMaterial InvisibladeMat = EnumHelper.addToolMaterial("Invisiblade", 3, 1000, 7.8F, 3, 15);
         
         LanguageRegistry.addName(invisidustItem, "Invisidust");
         LanguageRegistry.addName(invisiblockBlock, "Invisiblock");

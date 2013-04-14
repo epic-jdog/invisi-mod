@@ -28,7 +28,7 @@ this.toolMaterial = material; //The material to be used
 this.maxStackSize = 1; //The max size of the itemstack
 this.setMaxDamage(material.getMaxUses()); //The durability
 this.setCreativeTab(CreativeTabs.tabCombat);
-this.weaponDamage = 5 + toolMaterial.getDamageVsEntity(); //How strong it is on enemies
+this.weaponDamage = 4 + toolMaterial.getDamageVsEntity(); //How strong it is on enemies
 
 }
 

@@ -27,7 +27,8 @@ import net.minecraftforge.common.EnumHelper;
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Invisimod {
     
-    public static EnumToolMaterial InvisibladeMat = EnumHelper.addToolMaterial("Invisiblade", 3, 1000, 7.8F, 3, 15);
+    public static EnumToolMaterial InvisibladeMat = EnumHelper.addToolMaterial("Invisiblade", 3, 900, 7.8F, 3, 15);
+    public static Item InvisiBlade = new InvisiBlade(7061, InvisibladeMat, 8, "Invisiblade");
 
     
     private final static Item invisidustItem = new InvisidustItem(7055).setCreativeTab(CreativeTabs.tabMaterials)
@@ -75,7 +76,7 @@ public class Invisimod {
         LanguageRegistry.addName(invisileggingsItem, "Invisisuit Leggings");
         LanguageRegistry.addName(invisibootsItem, "Invisisuit Boots");
         LanguageRegistry.addName(invisidiamondItem, "Invisidiamond");
-        
+        LanguageRegistry.addName(InvisiBlade, "Invisiblade");
         
         ItemStack diamondStack = new ItemStack(Item.diamond);
         ItemStack invisidiamondStack = new ItemStack(invisidiamondItem);

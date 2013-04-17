@@ -33,8 +33,9 @@ public class Invisimod {
     
     private final static Item invisidustItem = new InvisidustItem(7055).setCreativeTab(CreativeTabs.tabMaterials)
             .setMaxStackSize(63).setUnlocalizedName("Invisidust");
-    private final static Item invisidiamondItem = new InvisidustItem(7060).setCreativeTab(CreativeTabs.tabMaterials)
+    public final static Item invisidiamondItem = new InvisidiamondItem(7060).setCreativeTab(CreativeTabs.tabMaterials)
             .setMaxStackSize(63).setUnlocalizedName("Invisidiamond");
+    
     private final static Item invisihelmetItem = new InvisiArmorItem(7056, EnumArmorMaterial.DIAMOND,
             ModLoader.addArmor("Invisiarmor"), 0).setCreativeTab(CreativeTabs.tabCombat).setUnlocalizedName(
             "Invisihelmet");
@@ -47,8 +48,15 @@ public class Invisimod {
     private final static Item invisibootsItem = new InvisiArmorItem(7059, EnumArmorMaterial.DIAMOND,
             ModLoader.addArmor("Invisiarmor"), 3).setCreativeTab(CreativeTabs.tabCombat).setUnlocalizedName(
             "Invisiboots");
+    
+    private final static Item invisiaxeItem = new InvisiaxeItem(7062, InvisibladeMat).setCreativeTab(CreativeTabs.tabCombat)
+            .setMaxStackSize(1).setUnlocalizedName("Invisiaxe");
+    
+    
     private final static Block invisiblockBlock = new InvisiblockBlock(1500, Material.rock).setCreativeTab(CreativeTabs.tabMisc)
             .setHardness(2F).setResistance(11).setUnlocalizedName("Invisiblock");
+    
+    
     
     public static final String modID = "Invisimod";
     // The instance of your mod that Forge uses.

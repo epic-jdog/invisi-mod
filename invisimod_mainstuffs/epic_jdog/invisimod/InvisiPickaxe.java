@@ -1,18 +1,22 @@
 package epic_jdog.invisimod;
 
 import epic_jdog.invisimod.Invisimod;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 
-public class InvisiaxeItem extends ItemAxe {
-    public InvisiaxeItem(int id, EnumToolMaterial material) {
-        super(id, material);
-    }
-    
-    
+public class InvisiPickaxe extends ItemPickaxe
+{
+
+
+public InvisiPickaxe(int par1, EnumToolMaterial material)
+{
+super(par1, material); //The super constructor
+
+
+}
+
     public boolean getIsRepairable(ItemStack tool, ItemStack repairItem)
     {
         return repairItem.itemID == Invisimod.invisidiamondItem.itemID;

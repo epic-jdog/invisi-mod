@@ -23,9 +23,7 @@ super(par1, material); //The super constructor
     }
 
 
-    public Item setUnlocalizedName(String string) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-    
+   
 }
+    
+

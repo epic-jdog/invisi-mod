@@ -23,6 +23,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import epic_jdog.invisimod.proxy.CommonProxy;
 import net.minecraftforge.common.EnumHelper;
+import epic_jdog.invisimod.InvisiAxe;
+import epic_jdog.invisimod.InvisiShovel;
+import epic_jdog.invisimod.InvisiHoe;
+import epic_jdog.invisimod.InvisiPickaxe;
+
 
 @Mod(modid = Invisimod.modID, name = "Invisimod", version = "0.0.5")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)

@@ -27,6 +27,7 @@ import epic_jdog.invisimod.InvisiAxe;
 import epic_jdog.invisimod.InvisiShovel;
 import epic_jdog.invisimod.InvisiHoe;
 import epic_jdog.invisimod.InvisiPickaxe;
+import net.minecraft.block.EnumMobType;
 
 
 @Mod(modid = Invisimod.modID, name = "Invisimod", version = "0.0.5")
@@ -77,6 +78,15 @@ public class Invisimod {
     private final static Block invisiblockBlock = new InvisiblockBlock(1500,
             Material.rock).setCreativeTab(CreativeTabs.tabMisc).setHardness(2F)
             .setResistance(11).setUnlocalizedName("Invisiblock");
+    
+    
+    private final static Block invisiplateBlock = new InvisiplateBlock(1501,
+            "Invisimod:Invisiblock", Material.circuits, EnumMobType.everything ).setCreativeTab(CreativeTabs.tabRedstone).setHardness(2F)
+            .setResistance(11).setUnlocalizedName("Invisiplate");
+    
+    
+    
+    
 
     public static final String modID = "Invisimod";
     // The instance of your mod that Forge uses.
@@ -99,6 +109,7 @@ public class Invisimod {
         LanguageRegistry.addName(invisidustItem, "Invisidust");
         LanguageRegistry.addName(invisiblockBlock, "Invisiblock");
         LanguageRegistry.addName(invisihelmetItem, "Invisisuit Helmet");
+        LanguageRegistry.addName(invisiplateBlock, "Invisiplate");
         LanguageRegistry.addName(invisichestplateItem, "Invisisuit Chestplate");
         LanguageRegistry.addName(invisileggingsItem, "Invisisuit Leggings");
         LanguageRegistry.addName(invisibootsItem, "Invisisuit Boots");
@@ -120,7 +131,9 @@ public class Invisimod {
         ItemStack goldenCarrotStack = new ItemStack(Item.goldenCarrot);
 
         GameRegistry.registerBlock(invisiblockBlock, "invisiblockBlock");
-
+        GameRegistry.registerBlock(invisiplateBlock, "invisiplateBlock");
+        
+        
         GameRegistry.addRecipe(new ItemStack(Invisimod.invisidustItem), "x  ",
                 "  y", " z ", 'x', glowstoneStack, 'y', gunpowdahStack, 'z',
                 goldenCarrotStack);

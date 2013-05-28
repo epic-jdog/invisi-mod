@@ -1,4 +1,4 @@
-package epic_jdog.invisimod;
+package epic_jdog.invisimod.item.toolscombat;
 
 import epic_jdog.invisimod.Invisimod;
 import net.minecraft.item.EnumToolMaterial;

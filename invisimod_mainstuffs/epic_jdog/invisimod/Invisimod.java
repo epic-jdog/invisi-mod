@@ -1,6 +1,5 @@
 package epic_jdog.invisimod;
 
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -9,6 +8,15 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
+import epic_jdog.invisimod.item.InvisidiamondItem;
+import epic_jdog.invisimod.item.InvisidustItem;
+import epic_jdog.invisimod.item.toolscombat.InvisiArmorItem;
+import epic_jdog.invisimod.item.toolscombat.InvisiAxe;
+import epic_jdog.invisimod.item.toolscombat.InvisiHoe;
+import epic_jdog.invisimod.item.toolscombat.InvisiPickaxe;
+import epic_jdog.invisimod.item.toolscombat.InvisiShovel;
+import epic_jdog.invisimod.networking.ServerPacketHandler;
+import epic_jdog.invisimod.networking.ClientPacketHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -19,19 +27,15 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import epic_jdog.invisimod.proxy.CommonProxy;
 import net.minecraftforge.common.EnumHelper;
-import epic_jdog.invisimod.InvisiAxe;
-import epic_jdog.invisimod.InvisiShovel;
-import epic_jdog.invisimod.InvisiHoe;
-import epic_jdog.invisimod.InvisiPickaxe;
 import net.minecraft.block.EnumMobType;
 
-
 @Mod(modid = Invisimod.modID, name = "Invisimod", version = "0.0.5")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@NetworkMod(clientSideRequired = true, serverSideRequired = false, clientPacketHandlerSpec = @SidedPacketHandler(channels = { "Invisimod" }, packetHandler = ClientPacketHandler.class), serverPacketHandlerSpec = @SidedPacketHandler(channels = { "Invisimod" }, packetHandler = ServerPacketHandler.class))
 public class Invisimod {
 
     public static EnumToolMaterial InvisibladeMat = EnumHelper.addToolMaterial(
@@ -39,7 +43,8 @@ public class Invisimod {
     public static EnumToolMaterial InvisiaxeMat = EnumHelper.addToolMaterial(
             "Invisiaxe", 3, 250, 6.0F, 2, 14);
 
-    public static Item invisiBlade = new InvisiBlade(7061, InvisibladeMat).setUnlocalizedName("Invisiblade");
+    public static Item invisiBlade = new InvisiBlade(7061, InvisibladeMat)
+            .setUnlocalizedName("Invisiblade");
 
     private final static Item invisidustItem = new InvisidustItem(7055)
             .setCreativeTab(CreativeTabs.tabMaterials).setMaxStackSize(63)
@@ -65,28 +70,27 @@ public class Invisimod {
             .setCreativeTab(CreativeTabs.tabCombat).setUnlocalizedName(
                     "Invisiboots");
 
+    public static Item invisiAxe = new InvisiAxe(7062, InvisiaxeMat)
+            .setCreativeTab(CreativeTabs.tabTools).setUnlocalizedName(
+                    "InvisiAxe");
+    public static Item invisiHoe = new InvisiHoe(7063, InvisiaxeMat)
+            .setCreativeTab(CreativeTabs.tabTools).setUnlocalizedName(
+                    "InvisiHoe");
+    public static Item invisiPickaxe = new InvisiPickaxe(7064, InvisiaxeMat)
+            .setCreativeTab(CreativeTabs.tabTools).setUnlocalizedName(
+                    "InvisiPickaxe");
+    public static Item invisiShovel = new InvisiShovel(7065, InvisiaxeMat)
+            .setCreativeTab(CreativeTabs.tabTools).setUnlocalizedName(
+                    "InvisiShovel");
 
-    public static Item invisiAxe = new InvisiAxe(7062, InvisiaxeMat).setCreativeTab(CreativeTabs.tabTools)
-    .setUnlocalizedName("InvisiAxe");
-    public static Item invisiHoe = new InvisiHoe(7063, InvisiaxeMat).setCreativeTab(CreativeTabs.tabTools)
-            .setUnlocalizedName("InvisiHoe");
-    public static Item invisiPickaxe = new InvisiPickaxe(7064, InvisiaxeMat).setCreativeTab(CreativeTabs.tabTools)
-            .setUnlocalizedName("InvisiPickaxe");
-    public static Item invisiShovel = new InvisiShovel(7065, InvisiaxeMat).setCreativeTab(CreativeTabs.tabTools)
-            .setUnlocalizedName("InvisiShovel");       
-    
     private final static Block invisiblockBlock = new InvisiblockBlock(1500,
             Material.rock).setCreativeTab(CreativeTabs.tabMisc).setHardness(2F)
             .setResistance(11).setUnlocalizedName("Invisiblock");
-    
-    
+
     private final static Block invisiplateBlock = new InvisiplateBlock(1501,
-            "Invisimod:Invisiblock", Material.circuits, EnumMobType.everything ).setCreativeTab(CreativeTabs.tabRedstone).setHardness(2F)
+            "Invisimod:Invisiblock", Material.circuits, EnumMobType.everything)
+            .setCreativeTab(CreativeTabs.tabRedstone).setHardness(2F)
             .setResistance(11).setUnlocalizedName("Invisiplate");
-    
-    
-    
-    
 
     public static final String modID = "Invisimod";
     // The instance of your mod that Forge uses.
@@ -132,8 +136,7 @@ public class Invisimod {
 
         GameRegistry.registerBlock(invisiblockBlock, "invisiblockBlock");
         GameRegistry.registerBlock(invisiplateBlock, "invisiplateBlock");
-        
-        
+
         GameRegistry.addRecipe(new ItemStack(Invisimod.invisidustItem), "x  ",
                 "  y", " z ", 'x', glowstoneStack, 'y', gunpowdahStack, 'z',
                 goldenCarrotStack);

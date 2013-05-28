@@ -1,16 +1,16 @@
-package epic_jdog.invisimod;
+package epic_jdog.invisimod.item.toolscombat;
 
 import epic_jdog.invisimod.Invisimod;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 
-public class InvisiPickaxe extends ItemPickaxe
+public class InvisiHoe extends ItemHoe
 {
 
 
-public InvisiPickaxe(int par1, EnumToolMaterial material)
+public InvisiHoe(int par1, EnumToolMaterial material)
 {
 super(par1, material); //The super constructor
 
@@ -23,6 +23,7 @@ super(par1, material); //The super constructor
     }
 
 
-   
+  
+    
     
 }

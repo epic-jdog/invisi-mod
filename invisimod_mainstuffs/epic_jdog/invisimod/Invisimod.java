@@ -12,6 +12,7 @@ import epic_jdog.invisimod.item.InvisidiamondItem;
 import epic_jdog.invisimod.item.InvisidustItem;
 import epic_jdog.invisimod.item.toolscombat.InvisiArmorItem;
 import epic_jdog.invisimod.item.toolscombat.InvisiAxe;
+import epic_jdog.invisimod.item.toolscombat.InvisiBlade;
 import epic_jdog.invisimod.item.toolscombat.InvisiHoe;
 import epic_jdog.invisimod.item.toolscombat.InvisiPickaxe;
 import epic_jdog.invisimod.item.toolscombat.InvisiShovel;
@@ -87,6 +88,10 @@ public class Invisimod {
             Material.rock).setCreativeTab(CreativeTabs.tabMisc).setHardness(2F)
             .setResistance(11).setUnlocalizedName("Invisiblock");
 
+    public static final Block invisibarrierBlock = new InvisibarrierBlock(1502,
+            Material.rock).setBlockUnbreakable().setResistance(6000000.0F)
+            .setUnlocalizedName("Invisibarrier").setCreativeTab(CreativeTabs.tabMisc);
+
     private final static Block invisiplateBlock = new InvisiplateBlock(1501,
             "Invisimod:Invisiblock", Material.circuits, EnumMobType.everything)
             .setCreativeTab(CreativeTabs.tabRedstone).setHardness(2F)
@@ -112,6 +117,7 @@ public class Invisimod {
 
         LanguageRegistry.addName(invisidustItem, "Invisidust");
         LanguageRegistry.addName(invisiblockBlock, "Invisiblock");
+        LanguageRegistry.addName(invisibarrierBlock, "Invisibarrier");
         LanguageRegistry.addName(invisihelmetItem, "Invisisuit Helmet");
         LanguageRegistry.addName(invisiplateBlock, "Invisiplate");
         LanguageRegistry.addName(invisichestplateItem, "Invisisuit Chestplate");
@@ -136,6 +142,7 @@ public class Invisimod {
 
         GameRegistry.registerBlock(invisiblockBlock, "invisiblockBlock");
         GameRegistry.registerBlock(invisiplateBlock, "invisiplateBlock");
+        GameRegistry.registerBlock(invisibarrierBlock, "invisibarrierBlock");
 
         GameRegistry.addRecipe(new ItemStack(Invisimod.invisidustItem), "x  ",
                 "  y", " z ", 'x', glowstoneStack, 'y', gunpowdahStack, 'z',
